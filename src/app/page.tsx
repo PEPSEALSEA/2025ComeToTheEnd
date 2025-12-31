@@ -160,11 +160,30 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <button className="btn" style={{ marginTop: 0 }} onClick={toggleAudio}>
                         {isAudioEnabled ? <><Volume2 size={20} style={{ marginRight: 8 }} /> Sound On</> : <><VolumeX size={20} style={{ marginRight: 8 }} /> Sound Off</>}
                     </button>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px' }}>
+
+                    <button
+                        className="btn"
+                        style={{
+                            marginTop: 0,
+                            background: 'linear-gradient(135deg, #ff416c, #ff4b2b)',
+                            boxShadow: '0 10px 20px -5px rgba(255, 65, 108, 0.4)'
+                        }}
+                        onClick={() => {
+                            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isNewYear: true });
+                            triggerFireworks();
+                            if (isAudioEnabled && audioRef.current) {
+                                audioRef.current.play().catch(e => console.log("Audio play blocked", e));
+                            }
+                        }}
+                    >
+                        End Countdown
+                    </button>
+
+                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', width: '100%', textAlign: 'center' }}>
                         {isDebug ? "DEBUG: FAST FORWARD ACTIVE" : "Press 'Pause' key to debug"}
                     </p>
                 </div>
