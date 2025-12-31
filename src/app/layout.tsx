@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "2025 Come To The End",
-    description: "A premium Next.js application for the end of 2025",
+    title: "2026 New Year Countdown",
+    description: "Counting down to 2026 in Bangkok (UTC+7) with a premium experience.",
 };
 
 export default function RootLayout({
